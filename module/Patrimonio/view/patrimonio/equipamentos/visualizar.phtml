@@ -1,0 +1,60 @@
+<h2>Visulizar Funcionário</h2>
+<p class="text-right"><a href="<?php echo $this->url('equipamentos') ?>" class="btn btn-default">Voltar</a> <a href="<?php echo $this->url('equipamentos', ['action' => 'editar','id' => $this->equipamentos->getId()]) ?>" class="btn btn-default">Editar</a></p>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <td><?php echo $this->equipamentos->getId() ?></td>
+    </tr>
+    <tr>
+        <th>Sigla</th>
+        <td><?php echo $this->equipamentos->getSigla() ?></td>
+    </tr>
+    <tr>
+        <th>Marca</th>
+        <td><?php echo $this->equipamentos->getMarca() ?></td>
+    </tr>
+    <tr>
+        <th>Modelo</th>
+        <td><?php echo $this->equipamentos->getModelo() ?></td>
+    </tr>
+    <tr>
+        <th>Cliente</th>
+        <td><?php echo $this->equipamentos->getCliente() ?></td>
+    </tr>
+    <tr>
+        <th>Localização</th>
+        <td><?php echo $this->equipamentos->getLocalAtual() ?></td>
+    </tr>
+    <tr>
+        <th>Descrição</th>
+        <td><?php echo $this->equipamentos->getDescricao() ?></td>
+    </tr>
+    <tr>
+        <th>Observações</th>
+        <td><?php echo $this->equipamentos->getObservacao() ?></td>
+    </tr>
+    <tr>
+        <th>Data de Aquisição</th>
+        <td><?php echo $this->equipamentos->getDataAquisicao() ?></td>
+    </tr>
+    <tr>
+        <th>Etiqueta</th>
+        <td><?php echo $this->equipamentos->getIdentificacao() ?></td>
+    </tr>
+    <tr>
+        <th>Acessórios</th>
+        <td><?php echo $this->equipamentos->getAcessorios() ?></td>
+    </tr>
+    <tr>
+        <th>Disponível</th>
+        <td><?php echo strtoupper($this->equipamentos->getDisponivel()) ?></td>
+    </tr>
+    <tr>
+        <th>Funcionário</th>
+        <td>
+            <a href="<?php echo $this->url('funcionarios', ['action' => 'visualizar','id' => $this->equipamentos->getFuncionarios()->getId()]) ?>" class="btn btn-link">
+                <?php echo $this->equipamentos->getFuncionarios()->getNome() ?> <?php echo $this->equipamentos->getFuncionarios()->getNomeMeio() ?> <?php echo $this->equipamentos->getFuncionarios()->getSobrenome() ?>
+            </a>
+        </td>
+    </tr>
+</table>

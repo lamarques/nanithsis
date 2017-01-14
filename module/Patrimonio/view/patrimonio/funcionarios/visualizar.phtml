@@ -1,0 +1,34 @@
+<h2>Visulaizar Funcionário</h2>
+<p class="text-right"><a href="<?php echo $this->url('funcionarios') ?>" class="btn btn-default">Voltar</a> <a href="<?php echo $this->url('funcionarios', ['action' => 'editar','id' => $funcionario->getId()]) ?>" class="btn btn-default">Editar</a></p>
+<table class="table table-responsive">
+    <tbody>
+    <tr>
+        <th>ID:</th>
+        <td><?php echo  $funcionario->getId() ?></td>
+    </tr>
+    <tr>
+        <th>Nome:</th>
+        <td><?php echo  $funcionario->getNome() ?></td>
+    </tr>
+    <tr>
+        <th>Nome do meio:</th>
+        <td><?php echo  $funcionario->getNomeMeio() ?></td>
+    </tr>
+    <tr>
+        <th>Sobrenome:</th>
+        <td><?php echo  $funcionario->getSobrenome() ?></td>
+    </tr>
+    <tr>
+        <th><?php echo  $funcionario->getDocumentoTipo() ?>:</th>
+        <td><?php echo  $funcionario->getDocumentoNumero() ?></td>
+    </tr>
+    <tr>
+        <th>Email:</th>
+        <td><?php echo  $funcionario->getEmail() ?></td>
+    </tr>
+    <tr>
+        <th>Telefone:</th>
+        <td><?php echo  $funcionario->getTelefone() ?></td>
+    </tr>
+    </tbody>
+</table>

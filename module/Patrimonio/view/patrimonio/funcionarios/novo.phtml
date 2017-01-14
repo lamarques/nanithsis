@@ -1,0 +1,42 @@
+<?php
+$form = $this->form;
+$form->prepare();
+?>
+<h2>Adicionar novo Funcionário</h2>
+<?php if($this->msg): ?>
+    <div class="alert alert-success"><?php echo $this->msg ?></div>
+<?php endif; ?>
+<p class="text-right"><a href="<?php echo $this->url('funcionarios') ?>" class="btn btn-default">Voltar</a></p>
+<?php echo $this->form()->openTag($form) ?>
+<div class="form-group">
+    <label><?php echo $this->formLabel($form->get('nome')); ?>:</label>
+    <?php echo $this->formElement()->render($form->get('nome')) ?>
+</div>
+
+<div class="form-group">
+    <label><?php echo $this->formLabel($form->get('nome_meio')); ?>:</label>
+    <?php echo $this->formElement()->render($form->get('nome_meio')) ?>
+</div>
+<div class="form-group">
+    <label><?php echo $this->formLabel($form->get('sobrenome')); ?>:</label>
+    <?php echo $this->formElement()->render($form->get('sobrenome')) ?>
+</div>
+<div class="form-group">
+    <label><?php echo $this->formLabel($form->get('documento_tipo')); ?>:</label>
+    <?php echo $this->formElement()->render($form->get('documento_tipo')) ?>
+</div>
+<div class="form-group">
+    <label><?php echo $this->formLabel($form->get('documento_numero')); ?>:</label>
+    <?php echo $this->formElement()->render($form->get('documento_numero')) ?>
+</div>
+<div class="form-group">
+    <label><?php echo $this->formLabel($form->get('email')); ?>:</label>
+    <?php echo $this->formElement()->render($form->get('email')) ?>
+</div>
+<div class="form-group">
+    <label><?php echo $this->formLabel($form->get('telefone')); ?>:</label>
+    <?php echo $this->formElement()->render($form->get('telefone')) ?>
+</div>
+<?php echo $this->formElement()->render($form->get('salvar')) ?>
+<?php echo $this->form()->closeTag() ?>
+

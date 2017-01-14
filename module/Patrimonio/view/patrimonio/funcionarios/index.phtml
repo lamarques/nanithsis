@@ -1,0 +1,50 @@
+<h2>Listagem de Funcionários</h2>
+<p><a href="<?php echo $this->url('funcionarios', ['action' => 'novo']) ?>" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i></a></p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Nome</th>
+        <th>Nome do Meio</th>
+        <th>Sobrenome</th>
+        <th>Tipo Documento</th>
+        <th>Nº Documento</th>
+        <th>Email</th>
+        <th>Telefone</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php
+    /**
+     * @var \Patrimonio\Entity\Funcionarios $fucionarios
+     */
+    ?>
+    <?php foreach ($this->funcionarios as $funcionario): ?>
+    <tr>
+        <td><?php echo $funcionario->getId(); ?></td>
+        <td><?php echo $funcionario->getNome(); ?></td>
+        <td><?php echo $funcionario->getNomeMeio(); ?></td>
+        <td><?php echo $funcionario->getSobrenome(); ?></td>
+        <td><?php echo $funcionario->getDocumentoTipo(); ?></td>
+        <td><?php echo $funcionario->getDocumentoNumero(); ?></td>
+        <td><?php echo $funcionario->getEmail(); ?></td>
+        <td><?php echo $funcionario->getTelefone(); ?></td>
+        <td>
+            <a href="<?php echo $this->url('funcionarios', ['action' => 'visualizar','id' => $funcionario->getId()]); ?>" class="btn btn-default"><i class="glyphicon glyphicon-eye-open"></i></a>
+            <a href="<?php echo $this->url('funcionarios', ['action' => 'editar','id' => $funcionario->getId()]); ?>"  class="btn btn-default"><i class="glyphicon glyphicon-pencil"></i></a>
+            <a href="<?php echo $this->url('funcionarios', ['action' => 'excluir','id' => $funcionario->getId()]); ?>"class="btn btn-default exclui"><i class="glyphicon glyphicon-remove"></i></a>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.exclui').click(function(){
+            if(!confirm('Tem Certeza?')){
+                return false;
+            }
+        });
+    })
+</script>

@@ -1,0 +1,49 @@
+<h2>Equipamentos</h2>
+<p><a href="<?php echo $this->url('equipamentos', ['action' => 'novo']) ?>" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i></a></p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Sigla</th>
+        <th>Marca</th>
+        <th>Modelo</th>
+        <th>Cliente</th>
+        <th>Localização</th>
+        <th>Data Aquisicao</th>
+        <th>Etiqueta</th>
+        <th>Disponível</th>
+        <th>Funcionario</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($this->equipamentos as $equipamento): ?>
+        <tr>
+            <td><?php echo $equipamento->getID() ?></td>
+            <td><?php echo $equipamento->getSigla() ?></td>
+            <td><?php echo $equipamento->getMarca() ?></td>
+            <td><?php echo $equipamento->getModelo() ?></td>
+            <td><?php echo $equipamento->getCliente() ?></td>
+            <td><?php echo $equipamento->getLocalAtual() ?></td>
+            <td><?php echo $equipamento->getDataAquisicao() ?></td>
+            <td><?php echo $equipamento->getIdentificacao() ?></td>
+            <td><?php if($equipamento->getDisponivel() === 's') { echo "Sim"; } else {echo "Não";}?></td>
+            <td><?php echo $equipamento->getFuncionarios()->getNome() ?> <?php echo $equipamento->getFuncionarios()->getNomeMeio() ?> <?php echo $equipamento->getFuncionarios()->getSobrenome() ?> </td>
+            <td>
+                <a href="<?php echo $this->url('equipamentos', ['action' => 'visualizar','id' => $equipamento->getId()]); ?>" class="btn btn-default"><i class="glyphicon glyphicon-eye-open"></i></a>
+                <a href="<?php echo $this->url('equipamentos', ['action' => 'editar','id' => $equipamento->getId()]); ?>"  class="btn btn-default"><i class="glyphicon glyphicon-pencil"></i></a>
+                <a href="<?php echo $this->url('equipamentos', ['action' => 'excluir','id' => $equipamento->getId()]); ?>"class="btn btn-default exclui"><i class="glyphicon glyphicon-remove"></i></a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.exclui').click(function(){
+            if(!confirm('Tem Certeza?')){
+                return false;
+            }
+        });
+    })
+</script>

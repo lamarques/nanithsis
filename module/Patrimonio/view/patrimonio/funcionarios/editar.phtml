@@ -1,0 +1,49 @@
+<?php
+$form = $this->form;
+$form->prepare();
+?>
+<h2>Editar Funcionário</h2>
+<?php if($this->msg): ?>
+    <div class="alert alert-success"><?php echo $this->msg ?></div>
+<?php endif; ?>
+<p class="text-right"><a href="<?php echo $this->url('funcionarios') ?>" class="btn btn-default">Voltar</a></p>
+<?php echo $this->form()->openTag($form) ?>
+<div class="form-group">
+    <label><?php echo $this->formLabel($form->get('nome')); ?>:</label>
+    <?php $form->get('nome')->setValue($funcionario->getNome()); ?>
+    <?php echo $this->formElement()->render($form->get('nome')) ?>
+</div>
+
+<div class="form-group">
+    <label><?php echo $this->formLabel($form->get('nome_meio')); ?>:</label>
+    <?php $form->get('nome_meio')->setValue($funcionario->getNomeMeio()); ?>
+    <?php echo $this->formElement()->render($form->get('nome_meio')) ?>
+</div>
+<div class="form-group">
+    <label><?php echo $this->formLabel($form->get('sobrenome')); ?>:</label>
+    <?php $form->get('sobrenome')->setValue($funcionario->getSobrenome()); ?>
+    <?php echo $this->formElement()->render($form->get('sobrenome')) ?>
+</div>
+<div class="form-group">
+    <label><?php echo $this->formLabel($form->get('documento_tipo')); ?>:</label>
+    <?php $form->get('documento_tipo')->setValue($funcionario->getDocumentoTipo()); ?>
+    <?php echo $this->formElement()->render($form->get('documento_tipo')) ?>
+</div>
+<div class="form-group">
+    <label><?php echo $this->formLabel($form->get('documento_numero')); ?>:</label>
+    <?php $form->get('documento_numero')->setValue($funcionario->getDocumentoNumero()); ?>
+    <?php echo $this->formElement()->render($form->get('documento_numero')) ?>
+</div>
+<div class="form-group">
+    <label><?php echo $this->formLabel($form->get('email')); ?>:</label>
+    <?php $form->get('email')->setValue($funcionario->getEmail()); ?>
+    <?php echo $this->formElement()->render($form->get('email')) ?>
+</div>
+<div class="form-group">
+    <label><?php echo $this->formLabel($form->get('telefone')); ?>:</label>
+    <?php $form->get('telefone')->setValue($funcionario->getTelefone()); ?>
+    <?php echo $this->formElement()->render($form->get('telefone')) ?>
+</div>
+<?php echo $this->formElement()->render($form->get('salvar')) ?>
+<?php echo $this->form()->closeTag() ?>
+
